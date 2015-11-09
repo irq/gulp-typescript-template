@@ -49,23 +49,23 @@ gulp.task('compile-ts', function () {
         }));
 
     return tsResult.js
-        .pipe(gulpIf(isProduction, concat(config.jsOutput)))
-        .pipe(gulpIf(isProduction, uglify()))
+        .pipe(gulpIf(isProduction(), concat(config.jsOutput)))
+        .pipe(gulpIf(isProduction(), uglify()))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(config.buildFolder));
 });
 
 gulp.task('sass', function() {
     var sassOptions = {};
-    if (isProduction) {
+    if (isProduction()) {
         sassOptions.outputSyle = 'compressed';
     }
 
     return gulp.src(config.scssSource)
-        .pipe(gulpIf(isProduction, sourcemaps.init()))
-        .pipe(gulpIf(isProduction, concat(config.styleOutput)))
+        .pipe(gulpIf(isProduction(), sourcemaps.init()))
+        .pipe(gulpIf(isProduction(), concat(config.styleOutput)))
         .pipe(sass(sassOptions))
-        .pipe(gulpIf(isProduction, sourcemaps.write('.')))
+        .pipe(gulpIf(isProduction(), sourcemaps.write('.')))
         .pipe(gulp.dest(config.buildFolder))
         .pipe(browserSync.stream());
 });
@@ -80,7 +80,7 @@ gulp.task('ts-lint', function () {
 
 gulp.task('views', function() {
     return gulp.src(config.htmlSource)
-        .pipe(gulpIf(isProduction, htmlReplace({
+        .pipe(gulpIf(isProduction(), htmlReplace({
             js: config.jsOutput,
             css: config.styleOutput
         })))
