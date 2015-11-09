@@ -2,7 +2,7 @@
 
 var gulp            = require('gulp');
 var sourcemaps      = require('gulp-sourcemaps');
-var typescript      = require('gulp-typescript'); // create project?
+var typescript      = require('gulp-typescript');
 var tslint          = require('gulp-tslint');
 var sass            = require('gulp-sass');
 var htmlReplace     = require('gulp-html-replace');
@@ -16,6 +16,7 @@ var browserSync     = require('browser-sync').create();
 var config          = require('./gulpfile.config.json');
 var environment     = 'development';
 var isProduction    = () => environment === 'production';
+var tsProject       = typescript.createProject({ noImplicitAny: true });
 
 gulp.task('default', ['clean'], function(cb){
     runSequence(['compile-ts', 'ts-lint', 'views', 'sass'], cb);
@@ -44,9 +45,7 @@ gulp.task('clean', function(cb) {
 gulp.task('compile-ts', function () {
     var tsResult = gulp.src(config.typescriptSource)
         .pipe(sourcemaps.init())
-        .pipe(typescript({
-            noImplicitAny: true
-        }));
+        .pipe(typescript(tsProject));
 
     return tsResult.js
         .pipe(gulpIf(isProduction(), concat(config.jsOutput)))
