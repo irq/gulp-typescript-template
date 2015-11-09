@@ -1,0 +1,8 @@
+{
+    "typescriptSource": "app/**/*.ts",
+    "scssSource": "app/**/*.scss",
+    "htmlSource": "app/*.html",
+    "jsOutput": "bundle.min.js",
+    "styleOutput": "styles.min.css",
+    "buildFolder": "build"
+}

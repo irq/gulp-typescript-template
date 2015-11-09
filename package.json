@@ -1,0 +1,22 @@
+{
+  "name": "gulp-typescript-tempalte",
+  "description": "A template for creating typescript projects using a gulp workflow",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Andreas Sion",
+  "private": true,
+  "devDependencies": {
+    "browser-sync": "^2.9.11",
+    "del": "^2.0.2",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-html-replace": "^1.5.4",
+    "gulp-if": "^2.0.0",
+    "gulp-sass": "^2.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-tslint": "^3.5.0",
+    "gulp-typescript": "^2.9.2",
+    "gulp-uglify": "^1.4.2",
+    "run-sequence": "^1.1.4"
+  }
+}
