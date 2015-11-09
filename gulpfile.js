@@ -58,7 +58,7 @@ gulp.task('compile-ts', function () {
 gulp.task('sass', function() {
     var sassOptions = {};
     if (isProduction()) {
-        sassOptions.outputSyle = 'compressed';
+        sassOptions.outputStyle = 'compressed';
     }
 
     return gulp.src(config.scssSource)
