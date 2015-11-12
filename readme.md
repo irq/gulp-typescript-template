@@ -3,9 +3,10 @@ A template for creating typescript projects using a gulp workflow. Compiles css 
 
 ## Getting started
 To get started create a project folder and place the files from this repo in it. Run `npm install` and the following comments become availible.
-* gulp - build the project for development
-* gulp serve - build, watch and run development version on a local server
-* gulp production - build the project for production (minification, bundling and source maps)
+* gulp - build the project
+* gulp serve - build, watch and run on a local server
+
+Add --production to build for production.
 
 Source files should be places under the "app" folder and will be build into the "build" folder.
 

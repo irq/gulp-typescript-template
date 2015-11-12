@@ -1,8 +1,14 @@
 {
-    "typescriptSource": "app/**/*.ts",
-    "scssSource": "app/**/*.scss",
+    "sourceRoot": "app",
+    "buildRoot": "build",
+
+    "typescriptSource": "app/assets/scripts/**/*.ts",
+    "jsVendorSource": "app/vendor/**/*.js",
+    "scssSource": "app/assets/styles/**/*.scss",
+    "imagesSource": "app/assets/images/**",
     "htmlSource": "app/*.html",
-    "jsOutput": "bundle.min.js",
-    "styleOutput": "styles.min.css",
-    "buildFolder": "build"
+
+    "jsOutputName": "assets/bundle.min.js",
+    "jsVendorOutputName": "assets/vendor.min.js",
+    "styleOutputName": "assets/styles.min.css"
 }
